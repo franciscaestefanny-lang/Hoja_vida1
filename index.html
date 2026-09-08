@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francisca Estefanny | Hoja de Vida</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --text: #24324a;
+      --text-soft: #66738a;
+      --text-muted: #8a97aa;
+      --line: #dde2ea;
+      --primary: #4564ff;
+      --primary-dark: #253a9a;
+      --primary-soft: #eaf0ff;
+      --secondary: #25b19f;
+      --secondary-soft: #dff9f5;
+      --accent: #ffbf69;
+      --danger: #e56868;
+      --success: #3ab982;
+      --shadow: rgba(41, 56, 86, 0.12);
+      --radius: 22px;
+      --radius-small: 14px;
+      --font: "Inter", "Segoe UI", "Roboto", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: var(--font);
+      line-height: 1.7;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -80px;
+      background-image: radial-gradient(#dae1f8 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1), transparent 100%);
+      pointer-events: none;
+      opacity: 0.4;
+      transform: rotate(2deg);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(246, 247, 249, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(221, 226, 234, 0.8);
+    }
+
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      font-size: 1.06rem;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 34px var(--shadow);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-weight: 700;
+      font-size: 0.94rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 260ms ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 22px;
+      background: var(--text);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 0.92rem;
+      transition: transform 260ms ease, box-shadow 260ms ease, background 260ms ease;
+      box-shadow: 0 12px 24px var(--shadow);
+    }
+
+    .nav-cta:hover {
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 34px 28px 30px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+      min-height: 560px;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      justify-content: center;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      background: var(--primary-soft);
+      border: 1px solid #ccd9ff;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.83rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      width: fit-content;
+      box-shadow: 0 8px 18px var(--shadow);
+    }
+
+    .section-tag::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 20px 0 14px;
+      font-size: clamp(3.8rem, 4vw, 4.9rem);
+      line-height: 1.07;
+      color: var(--text);
+      font-weight: 900;
+      letter-spacing: -0.055em;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 999px;
+      opacity: 0.6;
+      z-index: -1;
+    }
+
+    .hero-copy {
+      color: var(--text-soft);
+      font-size: clamp(1.08rem, 2vw, 1.28rem);
+      line-height: 1.95;
+      margin: 0 0 28px;
+      max-width: 680px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      box-shadow: 0 14px 30px var(--shadow);
+      transition: transform 260ms ease, box-shadow 260ms ease, background 260ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    .button-secondary {
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.95rem;
+      transition: transform 260ms ease, box-shadow 260ms ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .button-secondary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 20px var(--shadow);
+    }
+
+    .hero-stats {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+      color: var(--text-soft);
+    }
+
+    .stat {
+      min-width: 120px;
+      padding-right: 20px;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-number {
+      color: var(--primary);
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1.2;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 6px;
+    }
+
+    .hero-card-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      width: min(430px, 100%);
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 30px 80px var(--shadow);
+      border: 1px solid rgba(255,255,255,0.95);
+      transform: rotate(2deg);
+    }
+
+    .hero-card::before,
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      filter: blur(16px);
+      opacity: 0.8;
+    }
+
+    .hero-card::before {
+      background: var(--primary-soft);
+      left: -30px;
+      top: -30px;
+    }
+
+    .hero-card::after {
+      background: var(--secondary-soft);
+      right: -22px;
+      bottom: -22px;
+    }
+
+    .profile-card {
+      background: linear-gradient(145deg, var(--text), var(--primary-dark));
+      border-radius: var(--radius);
+      color: #fff;
+      padding: 30px;
+      min-height: 460px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 80px rgba(255,255,255,0.05);
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.18);
+      left: -80px;
+      top: -70px;
+      box-shadow: 0 0 0 30px rgba(255,255,255,0.025), 0 0 0 80px rgba(255,255,255,0.018);
+    }
+
+    .profile-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .profile-badge::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      display: inline-block;
+    }
+
+    .profile-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+    }
+
+    .profile-avatar {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 6px solid rgba(255,255,255,0.72);
+      background: linear-gradient(135deg, var(--accent), var(--secondary));
+      margin: 40px auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      font-size: 4.6rem;
+      font-weight: 900;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.28);
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-name {
+      text-align: center;
+      margin: 0 0 8px;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-role {
+      margin: 0;
+      text-align: center;
+      color: rgba(255,255,255,0.72);
+      font-size: 0.96rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-list {
+      margin: 28px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      color: rgba(255,255,255,0.82);
+      position: relative;
+      z-index: 2;
+    }
+
+    .profile-list li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      padding-bottom: 8px;
+    }
+
+    .profile-list li:last-child {
+      border-bottom: none;
+    }
+
+    .profile-list li::before {
+      content: "✦";
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 54px 28px;
+      position: relative;
+    }
+
+    .section-title-block {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 26px;
+      flex-wrap: wrap;
+    }
+
+    .section-kicker {
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.20em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    h2 {
+      font-size: clamp(2.3rem, 3vw, 3.2rem);
+      line-height: 1.2;
+      color: var(--text);
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: -0.045em;
+    }
+
+    .section-subtitle {
+      max-width: 560px;
+      color: var(--text-soft);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1fr;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .about-card {
+      background: var(--panel);
+      border: 1px solid rgba(221, 226, 234, 0.9);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px var(--shadow);
+      padding: 30px;
+    }
+
+    .about-card p {
+      color: var(--text-soft);
+      line-height: 1.9;
+      font-size: 1rem;
+      margin: 0 0 22px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .icon-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .icon-list .item {
+      padding: 16px;
+      background: var(--bg);
+      border-radius: var(--radius-small);
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .icon-list .item span {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+    }
+
+    .expertise {
+      background: var(--panel);
+      border-radius: var(--radius);
+      padding: 30px;
+      border: 1px solid rgba(221, 226, 234, 0.9);
+      box-shadow: 0 16px 40px var(--shadow);
+    }
+
+    .expertise h3 {
+      font-size: 1.66rem;
+      margin: 0 0 16px;
+      color: var(--text);
+      letter-spacing: -0.03em;
+    }
+
+    .expertise-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .expertise-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .expertise-row:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .expertise-row strong {
+      color: var(--text);
+      font-size: 0.94rem;
+    }
+
+    .expertise-row span {
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      font-weight: 800;
+      background: var(--secondary-soft);
+      color: var(--secondary);
+      border-radius: 999px;
+      padding: 7px 12px;
+      white-space: nowrap;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(190px, 1fr));
+      gap: 18px;
+    }
+
+    .experience-card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 24px;
+      box-shadow: 0 16px 40px var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--primary);
+    }
+
+    .experience-card .year {
+      color: var(--primary);
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .experience-card h3 {
+      color: var(--text);
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+      letter-spacing: -0.02em;
+      line-height: 1.34;
+    }
+
+    .experience-card p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 24px;
+      box-shadow: 0 16px 40px var(--shadow);
+    }
+
+    .skill-card h3 {
+      font-size: 1.22rem;
+      margin: 0 0 14px;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .skill-card .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-card .skill-list span {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      color: var(--text-soft);
+      font-weight: 800;
+      font-size: 0.82rem;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(160px, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: 0 16px 40px var(--shadow);
+      overflow: hidden;
+      padding-bottom: 24px;
+    }
+
+    .project-image {
+      min-height: 150px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background-image: radial-gradient(#fff 1px, transparent 1px);
+      background-size: 26px 26px;
+      transform: rotate(8deg);
+      opacity: 0.45;
+    }
+
+    .project-card h3 {
+      padding: 18px 22px 8px;
+      margin: 0;
+      font-size: 1.12rem;
+      color: var(--text);
+    }
+
+    .project-card p {
+      padding: 0 22px;
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      line-height: 1.75;
+    }
+
+    .contact-panel {
+      background: var(--text);
+      border-radius: var(--radius);
+      color: #fff;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 30px;
+      box-shadow: 0 30px 70px var(--shadow);
+    }
+
+    .contact-panel h2 {
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .contact-panel p {
+      color: rgba(255,255,255,0.76);
+      margin: 0 0 22px;
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 640px;
+    }
+
+    .contact-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--text);
+      font-weight: 900;
+      font-size: 0.88rem;
+      border: 1px solid rgba(255,255,255,0.20);
+      transition: transform 260ms ease;
+    }
+
+    .contact-links a:hover {
+      transform: translateY(-3px);
+    }
+
+    .contact-links .dark-button {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+    }
+
+    .contact-card-mini {
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.20);
+      padding: 22px;
+      min-width: 260px;
+    }
+
+    .contact-card-mini .mini-title {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.70);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 16px;
+    }
+
+    .contact-card-mini .mini-contact {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.96rem;
+      color: #fff;
+      font-weight: 800;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 15px;
+      margin-top: 15px;
+    }
+
+    .contact-card-mini .mini-contact span {
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.76);
+      padding: 20px 28px;
+      text-align: center;
+      font-size: 0.88rem;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+
+    @media (max-width: 960px) {
+      .hero,
+      .about-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .experience-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 7vw, 4rem);
+      }
+    }
+
+    @media (max-width: 740px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .profile-card {
+        min-height: auto;
+      }
+
+      .section {
+        padding: 42px 20px;
+      }
+
+      .hero,
+      .section {
+        margin: 0;
+      }
+
+      .icon-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="nav">
+      <a class="brand" href="#inicio" aria-label="Francisca Estefanny">
+        <span class="brand-mark">FE</span>
+        <span>Francisca Estefanny</span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Perfil</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="#contacto">Contratar</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <section class="hero-content">
+        <div class="section-tag">Perfil Profesional</div>
+        <h1 class="hero-title">Francisca <span>Estefanny</span></h1>
+        <p class="hero-copy">
+          Profesional orientada a resultados, con enfoque en atención al cliente,
+          liderazgo, organización y mejora continua. Me apasiona transformar
+          procesos y aportar valor con compromiso, claridad y creatividad.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button-primary" href="#contacto">Solicitar entrevista</a>
+          <a class="button-secondary" href="#experiencia">Ver trayectoria</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">6+</span>
+            <span class="stat-label">Años de experiencia</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">+30</span>
+            <span class="stat-label">Proyectos</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">360°</span>
+            <span class="stat-label">Enfoque integral</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero-card-wrap">
+        <div class="hero-card">
+          <div class="profile-card">
+            <div class="profile-top">
+              <span class="profile-badge">Disponible</span>
+              <span class="profile-icon">✎</span>
+            </div>
+            <div class="profile-avatar">FE</div>
+            <h2 class="profile-name">Francisca Estefanny</h2>
+            <p class="profile-role">Administración y Atención al Cliente</p>
+            <ul class="profile-list">
+              <li>Experiencia en servicio al cliente</li>
+              <li>Organización y coordinación de procesos</li>
+              <li>Comunicación efectiva y trabajo en equipo</li>
+              <li>Orientación a la mejora continua</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section" id="sobre-mi">
+      <div class="section-title-block">
+        <div>
+          <span class="section-kicker">Sobre mí</span>
+          <h2>Perfil profesional</h2>
+        </div>
+        <p class="section-subtitle">
+          Soy una profesional con capacidad de conectar personas, procesos y objetivos para lograr resultados coherentes y sostenibles.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <article class="about-card">
+          <p>
+            Me caracterizo por ser responsable, proactiva y enfocada en la calidad del servicio.
+            Mi experiencia me ha permitido desarrollar habilidades para atender necesidades,
+            resolver situaciones con criterio y colaborar en entornos dinámicos y de alto rendimiento.
+          </p>
+          <p>
+            Actualmente busco oportunidades donde pueda aportar desde la organización,
+            la atención al cliente y el fortalecimiento de relaciones estratégicas con equipos y usuarios.
+          </p>
+
+          <div class="icon-list">
+            <div class="item"><span>✓</span>Responsabilidad</div>
+            <div class="item"><span>✓</span>Empatía</div>
+            <div class="item"><span>✓</span>Trabajo en equipo</div>
+            <div class="item"><span>✓</span>Resolución</div>
+          </div>
+        </article>
+
+        <aside class="expertise">
+          <h3>Áreas de especialización</h3>
+          <div class="expertise-list">
+            <div class="expertise-row">
+              <strong>Atención al cliente</strong>
+              <span>Servicio</span>
+            </div>
+            <div class="expertise-row">
+              <strong>Administración</strong>
+              <span>Procesos</span>
+            </div>
+            <div class="expertise-row">
+              <strong>Coordinación</strong>
+              <span>Planeación</span>
+            </div>
+            <div class="expertise-row">
+              <strong>Comunicación</strong>
+              <span>Relación</span>
+            </div>
+            <div class="expertise-row">
+              <strong>Mejora continua</strong>
+              <span>Calidad</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="experiencia">
+      <div class="section-title-block">
+        <div>
+          <span class="section-kicker">Experiencia</span>
+          <h2>Trayectoria profesional</h2>
+        </div>
+        <p class="section-subtitle">
+          A lo largo de mi experiencia he adquirido una visión práctica de la atención, la organización y la ejecución de tareas en entornos colaborativos.
+        </p>
+      </div>
+
+      <div class="experience-grid">
+        <article class="experience-card">
+          <span class="year">2022 - Presente</span>
+          <h3>Atención y servicio al cliente</h3>
+          <p>Apoyo en atención de requerimientos, resolución de inquietudes y fortalecimiento de la experiencia de usuarios.</p>
+        </article>
+
+        <article class="experience-card">
+          <span class="year">2020 - 2022</span>
+          <h3>Coordinación administrativa</h3>
+          <p>Registro de información, organización de actividades y seguimiento de procesos internos y operativos.</p>
+        </article>
+
+        <article class="experience-card">
+          <span class="year">2018 - 2020</span>
+          <h3>Apoyo operativo</h3>
+          <p>Gestión de tareas, control de actividades y colaboración en proyectos de mejora y atención diaria.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="habilidades">
+      <div class="section-title-block">
+        <div>
+          <span class="section-kicker">Competencias</span>
+          <h2>Habilidades destacadas</h2>
+        </div>
+        <p class="section-subtitle">
+          Una combinación de organización, comunicación, servicio y visión estratégica para apoyar objetivos personales y empresariales.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card">
+          <h3>Habilidades interpersonales</h3>
+          <div class="skill-list">
+            <span>Comunicación</span>
+            <span>Empatía</span>
+            <span>Trabajo en equipo</span>
+            <span>Proactividad</span>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h3>Habilidades operativas</h3>
+          <div class="skill-list">
+            <span>Organización</span>
+            <span>Gestión documental</span>
+            <span>Seguimiento</span>
+            <span>Atención</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="proyectos">
+      <div class="section-title-block">
+        <div>
+          <span class="section-kicker">Logros</span>
+          <h2>Capacidades demostradas</h2>
+        </div>
+        <p class="section-subtitle">
+          Adapto mi perfil a diferentes contextos, priorizando calidad, resultados y claridad en cada actividad.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="project-card">
+          <div class="project-image">01</div>
+          <h3>Atención efectiva</h3>
+          <p>Respuestas rápidas, empáticas y orientadas a necesidades reales.</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">02</div>
+          <h3>Procesos claros</h3>
+          <p>Organización de tareas y seguimiento para mantener flujo y calidad.</p>
+        </article>
+
+        <article class="project-card">
+          <div class="project-image">03</div>
+          <h3>Mejora continua</h3>
+          <p>Actitud crítica y colaborativa para fortalecer oportunidades de crecimiento.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="contact-panel">
+        <div>
+          <span class="section-kicker" style="color: var(--accent); background: transparent; border: none; padding: 0;">Contacto</span>
+          <h2>Hablemos de una oportunidad</h2>
+          <p>
+            Estoy abierta a proyectos, vacantes o colaboraciones donde pueda aportar valor
+            con atención al cliente, organización, trabajo colaborativo y mejora continua.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:francisca.estefanny@email.com" class="dark-button">francisca.estefanny@email.com</a>
+            <a href="tel:+573001234567">+57 300 123 4567</a>
+          </div>
+        </div>
+
+        <aside class="contact-card-mini">
+          <span class="mini-title">Disponible para</span>
+          <div class="mini-contact"><span>✆</span> Reuniones y entrevistas</div>
+          <div class="mini-contact"><span>✉</span> Servicio al cliente</div>
+          <div class="mini-contact"><span>✦</span> Administración</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Francisca Estefanny — Hoja de Vida</div>
+  </footer>
+</body>
+</html>
+ 
