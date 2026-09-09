@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+<rect width="900" height="600" fill="#0c2b43"/>
+<rect x="80" y="80" width="740" height="440" rx="20" fill="none" stroke="#b79a5d" stroke-width="2"/>
+<circle cx="360" cy="250" r="120" fill="#dcecf8" opacity="0.9"/>
+<path d="M320 190 L360 250 L420 190 L500 250 L620 160" fill="none" stroke="#0a2e4b" stroke-width="5"/>
+<path d="M260 330 L330 260 L390 330 L480 260 L560 330" fill="none" stroke="#ffffff" stroke-width="4"/>
+<text x="80" y="560" font-family="Arial" font-size="24" fill="#ffffff">DISCIPLINA Y SERVICIO</text>
+</svg>

@@ -15,12 +15,15 @@ if (savedTheme === 'dark') {
 if (navToggle && nav) {
   navToggle.addEventListener('click', () => {
     nav.classList.toggle('open');
+    const expanded = nav.classList.contains('open');
+    navToggle.setAttribute('aria-expanded', String(expanded));
   });
 }
 
 document.querySelectorAll('.nav-links a').forEach((link) => {
   link.addEventListener('click', () => {
     if (nav) nav.classList.remove('open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
   });
 });
 
@@ -88,51 +91,24 @@ function setActiveSection() {
 window.addEventListener('scroll', setActiveSection);
 setActiveSection();
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
 
-document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
-
-const skills = [
-  { name: 'Responsabilidad', value: 95 },
-  { name: 'Disciplina', value: 92 },
-  { name: 'Trabajo en equipo', value: 90 },
-  { name: 'Comunicación', value: 85 },
-  { name: 'Adaptabilidad', value: 88 },
-  { name: 'Organización', value: 86 },
-  { name: 'Liderazgo', value: 82 },
-  { name: 'Vocación de servicio', value: 96 }
-];
-
-const skillGrid = document.getElementById('skillGrid');
-
-if (skillGrid) {
-  skills.forEach((skill) => {
-    const card = document.createElement('article');
-    card.className = 'skill-card reveal';
-
-    card.innerHTML = `
-      <div class="skill-bar-wrap">
-        <span class="skill-name">${skill.name}</span>
-        <span class="percent">${skill.value}%</span>
-      </div>
-      <div class="skill-bar" style="--value:${skill.value}%">
-        <span></span>
-      </div>
-    `;
-
-    skillGrid.appendChild(card);
-  });
+  document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
+} else {
+  document.querySelectorAll('.reveal').forEach((item) => item.classList.add('visible'));
 }
 
 const statNumbers = document.querySelectorAll('[data-stat]');
 
 function animateCounter(element) {
+  if (!element || !element.dataset || !element.dataset.stat) return;
   const target = Number(element.dataset.stat);
   const duration = 1600;
   const start = performance.now();
@@ -140,49 +116,28 @@ function animateCounter(element) {
   function tick(now) {
     const progress = Math.min((now - start) / duration, 1);
     const eased = 1 - Math.pow(1 - progress, 3);
-    element.textContent = Math.round(eased * target);
+    element.textContent = String(Math.round(eased * target));
     if (progress < 1) requestAnimationFrame(tick);
   }
 
   requestAnimationFrame(tick);
 }
 
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const stat = entry.target;
-      animateCounter(stat);
-      statsObserver.unobserve(stat);
-    }
-  });
-}, { threshold: 0.7 });
+if ('IntersectionObserver' in window) {
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const stat = entry.target;
+        animateCounter(stat);
+        statsObserver.unobserve(stat);
+      }
+    });
+  }, { threshold: 0.7 });
 
-statNumbers.forEach((stat) => statsObserver.observe(stat));
-
-const downloadButton = document.getElementById('downloadCv');
-const downloadMsg = document.getElementById('downloadMsg');
-
-if (downloadButton) {
-  downloadButton.addEventListener('click', (event) => {
-    const pdfPath = 'assets/documents/hoja-de-vida-estefanny-vargas.pdf';
-
-    fetch(pdfPath, { method: 'HEAD' })
-      .then((response) => {
-        if (!response.ok) {
-          event.preventDefault();
-          if (downloadMsg) {
-            downloadMsg.textContent = 'El archivo PDF aún no está disponible. Puede colocarlo en la carpeta de documentos.';
-            downloadMsg.classList.add('visible');
-          }
-        }
-      })
-      .catch(() => {
-        event.preventDefault();
-        if (downloadMsg) {
-          downloadMsg.textContent = 'El archivo PDF aún no está disponible. Puede colocarlo en la carpeta de documentos.';
-          downloadMsg.classList.add('visible');
-        }
-      });
+  statNumbers.forEach((stat) => statsObserver.observe(stat));
+} else {
+  statNumbers.forEach((stat) => {
+    stat.textContent = stat.dataset.stat;
   });
 }
 
@@ -223,3 +178,110 @@ if (form && formMessage) {
     form.reset();
   });
 }
+
+const galleryImages = [
+  { src: 'assets/images/gallery-1.svg', alt: 'Servicio institucional', caption: 'Servicio institucional' },
+  { src: 'assets/images/gallery-2.svg', alt: 'Trabajo en equipo', caption: 'Trabajo en equipo' },
+  { src: 'assets/images/gallery-3.svg', alt: 'Disciplina y servicio', caption: 'Disciplina y servicio' },
+  { src: 'assets/images/gallery-4.svg', alt: 'Capacitación', caption: 'Capacitación' }
+];
+
+const galleries = Array.from(document.querySelectorAll('.gallery-open'));
+const modal = document.getElementById('galleryModal');
+const modalImage = document.getElementById('modalImage');
+const modalCaption = document.getElementById('modalCaption');
+const modalClose = document.getElementById('modalClose');
+const modalPrev = document.getElementById('modalPrev');
+const modalNext = document.getElementById('modalNext');
+let galleryIndex = 0;
+
+function openGallery(index) {
+  if (!modal || !modalImage || !modalCaption) return;
+  galleryIndex = index;
+  modalImage.src = galleryImages[index].src;
+  modalImage.alt = galleryImages[index].alt;
+  modalCaption.textContent = galleryImages[index].caption;
+  modal.classList.add('visible');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeGallery() {
+  if (!modal) return;
+  modal.classList.remove('visible');
+  modal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+if (galleries.length > 0) {
+  galleries.forEach((button) => {
+    button.addEventListener('click', () => {
+      openGallery(Number(button.dataset.index));
+    });
+  });
+}
+
+if (modalClose) modalClose.addEventListener('click', closeGallery);
+if (modalPrev) {
+  modalPrev.addEventListener('click', () => {
+    const nextIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    openGallery(nextIndex);
+  });
+}
+if (modalNext) {
+  modalNext.addEventListener('click', () => {
+    const nextIndex = (galleryIndex + 1) % galleryImages.length;
+    openGallery(nextIndex);
+  });
+}
+
+document.addEventListener('keydown', (event) => {
+  if (!modal || modal.getAttribute('aria-hidden') === 'true') return;
+  if (event.key === 'Escape') closeGallery();
+  if (event.key === 'ArrowLeft') {
+    const nextIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    openGallery(nextIndex);
+  }
+  if (event.key === 'ArrowRight') {
+    const nextIndex = (galleryIndex + 1) % galleryImages.length;
+    openGallery(nextIndex);
+  }
+});
+
+const downloadButtons = [
+  document.getElementById('downloadCv'),
+  document.getElementById('downloadCv2')
+];
+
+let messageDownload = null;
+
+function checkPdfDownload(button, targetMsg) {
+  if (!button) return;
+
+  button.addEventListener('click', (event) => {
+    const pdfPath = 'assets/documents/hoja-de-vida-estefanny-vargas.pdf';
+
+    fetch(pdfPath, { method: 'HEAD' })
+      .then((response) => {
+        if (!response.ok) {
+          event.preventDefault();
+          if (targetMsg) {
+            targetMsg.textContent = 'El archivo PDF aún no está disponible. Puede colocarlo en la carpeta de documentos.';
+            targetMsg.classList.add('visible');
+          }
+        }
+      })
+      .catch(() => {
+        event.preventDefault();
+        if (targetMsg) {
+          targetMsg.textContent = 'El archivo PDF aún no está disponible. Puede colocarlo en la carpeta de documentos.';
+          targetMsg.classList.add('visible');
+        }
+      });
+  });
+}
+
+const downloadMsg = document.getElementById('downloadMsg');
+const downloadMsg2 = document.getElementById('downloadMsg2');
+checkPdfDownload(downloadButtons[0], downloadMsg);
+checkPdfDownload(downloadButtons[1], downloadMsg2);

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+<rect width="900" height="600" fill="#0a2e4b"/>
+<rect x="50" y="50" width="800" height="500" rx="16" fill="none" stroke="#9fc8e8" stroke-width="2"/>
+<circle cx="290" cy="220" r="110" fill="#b79a5d" opacity="0.8"/>
+<path d="M210 320 C250 260, 300 270, 340 320" fill="none" stroke="#ffffff" stroke-width="4"/>
+<path d="M160 420 L220 350 L280 420" fill="none" stroke="#dcecf8" stroke-width="4"/>
+<path d="M340 440 L530 250 L720 440" fill="none" stroke="#dcecf8" stroke-width="4"/>
+<text x="80" y="560" font-family="Arial" font-size="24" fill="#ffffff">SERVICIO INSTITUCIONAL</text>
+</svg>

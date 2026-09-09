@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+<rect width="900" height="600" fill="#0e314c"/>
+<rect x="60" y="60" width="780" height="480" rx="18" fill="none" stroke="#dcecf8" stroke-width="2"/>
+<path d="M120 420 L220 190 L300 420" fill="none" stroke="#b79a5d" stroke-width="5"/>
+<path d="M260 420 L300 250 L360 420" fill="none" stroke="#dcecf8" stroke-width="5"/>
+<path d="M430 420 L500 220 L610 420" fill="none" stroke="#b79a5d" stroke-width="5"/>
+<path d="M660 420 L700 260 L760 420" fill="none" stroke="#dcecf8" stroke-width="5"/>
+<text x="80" y="560" font-family="Arial" font-size="24" fill="#ffffff">CAPACITACIÓN</text>
+</svg>

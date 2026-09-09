@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+<rect width="900" height="600" fill="#123c61"/>
+<rect x="70" y="70" width="760" height="460" rx="20" fill="none" stroke="#dcecf8" stroke-width="2"/>
+<circle cx="250" cy="250" r="80" fill="#dcecf8"/>
+<circle cx="430" cy="250" r="80" fill="#9fc8e8"/>
+<circle cx="610" cy="250" r="80" fill="#b79a5d"/>
+<path d="M200 420 C260 380, 300 380, 350 420" fill="none" stroke="#ffffff" stroke-width="4"/>
+<path d="M380 420 C440 380, 500 380, 540 420" fill="none" stroke="#ffffff" stroke-width="4"/>
+<path d="M560 420 C620 380, 680 380, 720 420" fill="none" stroke="#ffffff" stroke-width="4"/>
+<text x="80" y="560" font-family="Arial" font-size="24" fill="#ffffff">TRABAJO EN EQUIPO</text>
+</svg>
