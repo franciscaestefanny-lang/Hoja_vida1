@@ -248,6 +248,20 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+const printCv = document.getElementById('printCv');
+if (printCv) {
+  printCv.addEventListener('click', () => {
+    window.print();
+  });
+}
+
+const printCv = document.getElementById('printCv');
+if (printCv) {
+  printCv.addEventListener('click', () => {
+    window.print();
+  });
+}
+
 const downloadButtons = [
   document.getElementById('downloadCv'),
   document.getElementById('downloadCv2')

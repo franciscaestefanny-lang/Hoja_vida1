@@ -17,11 +17,11 @@
   --blue-accent: #78a9d6;
   --blue-cool: #8bbbd7;
   --steel: #56636f;
-  --sage: #8ba998;
+  --sage: #8bbbd7;
   --gold: #b79a5d;
   --gold-soft: #fff9ef;
   --danger: #c94c4c;
-  --success: #3d8b6d;
+  --success: var(--blue)lue);
   --shadow: rgba(20, 47, 78, 0.14);
   --shadow-strong: rgba(20, 47, 78, 0.25);
   --radius-lg: 30px;
@@ -46,11 +46,11 @@ body.dark-theme {
   --blue-soft: #142542;
   --blue-accent: #b8d7ee;
   --steel: #afbac4;
-  --sage: #9eb6aa;
+  --sage: #8bbbd7;
   --gold: #d8aa62;
   --gold-soft: #202226;
   --danger: #eb8a8a;
-  --success: #84c7aa;
+  --success: var(--blue)lue);
   --shadow: rgba(0, 0, 0, 0.3);
   --shadow-strong: rgba(0, 0, 0, 0.56);
 }
@@ -311,6 +311,18 @@ button { cursor: pointer; }
 }
 
 .btn-secondary:hover { background: var(--blue-soft); }
+
+.btn-print {
+  background: var(--blue-dark);
+  color: var(--card);
+  border-color: var(--blue);
+  box-shadow: 0 12px 30px var(--shadow);
+}
+
+.btn-print:hover {
+  background: var(--blue);
+  color: var(--card);
+}
 
 .btn:hover { transform: translateY(-4px); }
 
